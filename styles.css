@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Moderustic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(5rem, 4vw, 6rem);
+  font-weight: 500;
+  color: #eee;
+  user-select: 	none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  min-height: 100vh;
+  background: #262626;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  max-width: 300px;
+  height: 380px;
+  border-radius: 15px;
+  margin: 20px 0 40px;
+  overflow: hidden;
+  box-shadow: 0 8px 10px rgb(0, 0, 0, 0.5), 
+    inset 0 2px 2px rgb(255, 255, 255, 0.2);
+  cursor: grab;
+}
+
+.content {
+  position: relative;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-rows: 2fr 1fr 3fr 1fr;
+  gap: 10px;
+  height: 100%;
+  padding: 16px;
+  background: rgb(104, 104, 104, 0.5);
+  color: #fff;
+  user-select: none;
+}
+
+.content::before,
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+  180deg,
+  rgb(30,119,95),
+  rgb(55,141,167),
+  rgb(93,59,174), 
+  rgb(165,59,157));
+}
+
+.content img {
+  aspect-ratio: 3/2;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0,3);  
+}
+
+
+.content h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.content p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ece9e6;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin-bottom: 5px;
+  box-shadow: 0 0 5px #eee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:is(:hover, :focus-visible){
+  transform: scale(0.97);
+}
+
+.control {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 14px;
+}
+
+.control li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #99559b, #3b3d8a);
+  box-shadow: 0 4px 6px rgb(0, 0, 0, 0.4),
+    inset 0 4px 4px rgb(255, 255, 255, 0,2);
+  padding: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.control li:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #99559b, #3b3d8a);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+}
+
+.control li:hover:before {
+  opacity: 1;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.content img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+}
+
+
+.swiper-slide.hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #262626;
+  padding: 20px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #eee;
+  margin-top: 0;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.close-modal {
+  background-color: #ece9e6;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin-bottom: 5px;
+  box-shadow: 0 0 5px #eee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  transform: scale(0.97);
+}
+
+.info {
+  display: none;
+}
