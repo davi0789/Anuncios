@@ -5,6 +5,7 @@ var swiper = new Swiper(".swiper", {
 	preventClicks: true,
 	noSwiping: true,
 	freeMode: false,
+	loop: false,
 	navigation: {
 		nextEl: ".next",
 		prevEl: ".prev",
@@ -25,6 +26,7 @@ var swiper = new Swiper(".swiper", {
 		},
 	}
 });
+
 
 // Selecciona todas las tarjetas
 const cards = document.querySelectorAll('.swiper-slide');
